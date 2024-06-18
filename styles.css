@@ -1,0 +1,216 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Ancho máximo del contenedor principal */
+    margin: 20px auto; /* Centrar el contenedor con un margen */
+    padding: 10px; /* Espaciado interno del contenedor */
+    box-sizing: border-box; /* Incluir el padding en el tamaño total */
+}
+
+.controls {
+    position: relative; /* Posición relativa para el menú */
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    z-index: 10; /* Asegurar que esté sobre el juego */
+}
+
+/* Estilos para el canvas del juego */
+#gameCanvas {
+    background: #dddddd;
+    border-radius: 10px;
+    margin-inline: 10px;
+    position: relative;
+    border: 1px solid #ccc;
+    margin-top: 20px; /* Espacio sobre el canvas para separación del menú */
+    width: calc(100% - 22px); /* Ancho calculado para tener separación con los bordes (10px de cada lado + 1px de borde) */
+    max-width: 100%; /* Ancho máximo del 100% del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+    box-sizing: border-box; /* Incluir el borde en el tamaño total */
+}
+
+/* Estilos para el botón de reinicio */
+#restartBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none; /* Ocultar por defecto */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+/* Estilos para las flechas de control */
+.arrow-controls {
+    display: none; /* Ocultar por defecto fuera de la responsiva */
+    text-align: center;
+    margin-top: -36px;
+}
+
+.arrow-btn {
+    font-size: 36px; /* Tamaño de fuente más grande para facilitar la pulsación */
+    padding: 15px 30px; /* Espaciado mayor para facilitar la pulsación */
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+/* Estilos para el panel de Game Over */
+.restartBtn {
+    align-items: center;
+}
+.game-over-content {
+    display: flex;
+    flex-direction: center;
+    align-items: start;
+}
+#restartBtn {
+    border-radius: 15px; /* Bordes redondeados */
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color de letra */
+    font-family: Arial, sans-serif; /* Fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    display: inline-block; /* Mostrar como elemento en línea */
+    text-align: center; /* Alinear texto al centro */
+}
+
+/* Opcional: Estilo cuando el ratón pasa por encima */
+#restartBtn:hover {
+    background-color: #45a049; /* Color de fondo al pasar el ratón */
+}
+.rounded-button {
+    border-radius: 15px;
+    /* Otros estilos opcionales */
+}
+/* CSS para el modal de configuración */
+#settingsModal {
+    display: none;
+    position: fixed;
+    align-items: start;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 70%;
+    width: 400px;
+    border-radius: 30px;
+}
+/* Estilos adicionales si es necesario */
+.show-modal {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* CSS para la animación de despliegue */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-10);
+    }
+    0% {
+        transform: translateY(-10);
+    }
+}
+.menu-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.menu-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: #0056b3;
+}
+
+.menu-items {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 0px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.menu-items a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Ensure no line breaks */
+}
+
+.menu-items a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-items a:last-child {
+    border-bottom: none;
+}
+/* Aplicar la animación al modal de configuración */
+#settingsModal {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 600px) {
+    #restartBtn {
+        display: block; /* Mostrar el botón de reinicio en dispositivos móviles */
+    }
+    .controls {
+        margin-top: 10px; /* Reducir el espacio sobre el canvas en dispositivos móviles */
+    }
+
+    #gameCanvas {
+        margin-top: 10px; /* Reducir el espacio sobre el canvas en dispositivos móviles */
+    }
+
+    .arrow-controls {
+        display: block; /* Mostrar las flechas de control en dispositivos móviles */
+    }
+
+    .arrow-btn {
+        font-size: 28px; /* Tamaño de fuente más grande para facilitar la pulsación en móviles */
+        padding: 3px 20px; /* Espaciado mayor para facilitar la pulsación en móviles */
+    }
+
+    .arrow-controls > div {
+        display: flex;
+        justify-content: space-between; /* Espaciar los botones laterales */
+        margin: -15px 40px; /* Separación horizontal de los botones laterales */
+    }
+}
