@@ -205,12 +205,12 @@ body {
 
     .arrow-btn {
         font-size: 28px; /* Tamaño de fuente más grande para facilitar la pulsación en móviles */
-        padding: 3px 20px; /* Espaciado mayor para facilitar la pulsación en móviles */
+        padding: 12px 12px; /* Espaciado mayor para facilitar la pulsación en móviles */
     }
 
     .arrow-controls > div {
         display: flex;
         justify-content: space-between; /* Espaciar los botones laterales */
-        margin: -15px 40px; /* Separación horizontal de los botones laterales */
+        margin: -19px 60px; /* Separación horizontal de los botones laterales */
     }
 }
